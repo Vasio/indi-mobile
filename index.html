@@ -1728,7 +1728,10 @@ input = new InputController({
   onOrientation: ({ landscape }) => {
     $('pause-button').disabled = !landscape || !['playing', 'pause'].includes(phase);
     if (!landscape && phase === 'playing') pause();
-    window.requestAnimationFrame(() => engine?.scale?.refresh?.());
+    window.requestAnimationFrame(() => {
+      const scale = engine?.scale;
+      if (scale?.canvas) scale.refresh();
+    });
   },
 });
 window.addEventListener('pagehide', save);
