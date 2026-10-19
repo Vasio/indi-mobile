@@ -175,14 +175,14 @@ html[data-platform='desktop'] #rotate-screen { display:none!important; }
   .water-note { max-width: calc(100% - 290px); font-size: 8px; bottom: calc(var(--safe-bottom) + 6px); }
 }
 @media (orientation: portrait) {
-  #rotate-screen { display: flex; }
-  #game-region { visibility: hidden; }
-  .topbar { visibility: hidden; }
-  #game-region[data-phase='playing'] #touch-controls { visibility: hidden; opacity: 0; pointer-events: none; }
+  html[data-platform='mobile'] #rotate-screen { display: flex; }
+  html[data-platform='mobile'] #game-region { visibility: hidden; }
+  html[data-platform='mobile'] .topbar { visibility: hidden; }
+  html[data-platform='mobile'] #game-region[data-phase='playing'] #touch-controls { visibility: hidden; opacity: 0; pointer-events: none; }
 }
-html[data-orientation='portrait'] #rotate-screen { display: flex; }
-html[data-orientation='portrait'] #game-region, html[data-orientation='portrait'] .topbar { visibility: hidden; }
-html[data-orientation='portrait'] #game-region #touch-controls { visibility: hidden; opacity: 0; pointer-events: none; }
+html[data-platform='mobile'][data-orientation='portrait'] #rotate-screen { display: flex; }
+html[data-platform='mobile'][data-orientation='portrait'] #game-region, html[data-platform='mobile'][data-orientation='portrait'] .topbar { visibility: hidden; }
+html[data-platform='mobile'][data-orientation='portrait'] #game-region #touch-controls { visibility: hidden; opacity: 0; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 </style>
 </head>
